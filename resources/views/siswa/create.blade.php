@@ -12,13 +12,14 @@
     <a href="/">Kembali</a>
     <br>
     <br>
-    <form action="" method="post">
+    <form action="/siswa/store" method="post">
+        @csrf
         <div>
             <label for="">Kelas</label><br>
-            <select name="kelas">
-                <option value="">X RPL 1</option>
-                <option value="">XI RPL 1</option>
-                <option value="">XII RPL 1</option>
+            <select name="kelas_id">
+                <option value="1">X RPL 1</option>
+                <option value="2">XI RPL 2</option>
+                <option value="3">XII RPL 3</option>
             </select>
         </div>
         <br>
@@ -50,6 +51,11 @@
         <div>
             <label for="">No Handphone</label><br>
             <input type="tel" name="no_handphone">
+        </div>
+        <br>
+        <div>
+            <label for="">Foto</label><br>
+            <input type="file" name="foto">
         </div>
         <br>
         <div>
