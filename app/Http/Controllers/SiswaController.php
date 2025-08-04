@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    // mengarahkan ke halaman index
+    public function index() {
+        return view('siswa.index');
+    }
+
+
+    // mengarahkan ke halaman create
+    public function create() {
+        return  view('siswa.create');
+    }
+
     // fungsi store data siswa
     public function store(Request $request) {
         // lakukan validasi data
