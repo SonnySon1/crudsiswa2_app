@@ -25,7 +25,7 @@ class SiswaController extends Controller
             'name'          => 'required',
             'nisn'          => 'required',
             'alamat'        => 'required',
-            'email'         => 'required',
+            'email'         => 'required | unique:users,email',
             'password'      => 'required',
             'no_handphone'  => 'required'
         ]);
