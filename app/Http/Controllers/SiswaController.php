@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clas;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,12 @@ class SiswaController extends Controller
 
     // mengarahkan ke halaman create
     public function create() {
-        return  view('siswa.create');
+
+        // siapkan data kelas
+        $clases = Clas::all();
+
+        // alihkan ke halaman create siswa
+        return  view('siswa.create', compact('clases'));
     }
 
     // fungsi store data siswa
@@ -23,17 +29,16 @@ class SiswaController extends Controller
         // lakukan validasi data
         $request->validate([
             'name'          => 'required',
-            'nisn'          => 'required',
+            'nisn'          => 'required | unique:users,nisn',
             'alamat'        => 'required',
             'email'         => 'required | unique:users,email',
             'password'      => 'required',
-            'no_handphone'  => 'required'
+            'no_handphone'  => 'required | unique:users,no_handphone'
         ]);
 
         // siapkan data yang akan di masukan ke dalam tabel user
         $datasiswa_store = [
             'clas_id'      => $request->kelas_id,
-            'photo'        => 'foto.jpg',
             'name'         => $request->name,
             'nisn'         => $request->nisn,
             'alamat'       => $request->alamat,
@@ -41,7 +46,9 @@ class SiswaController extends Controller
             'password'     => $request->password,
             'no_handphone' => $request->no_handphone
         ];
-        
+
+        $datasiswa_store['photo'] = $request->file('foto')->store('profilesiswa', 'public');
+
         // simpan data ke dalam tabel user
         User::create($datasiswa_store);
        
