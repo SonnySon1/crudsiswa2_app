@@ -10,7 +10,10 @@ class SiswaController extends Controller
 {
     // mengarahkan ke halaman index
     public function index() {
-        return view('siswa.index');
+        // siapkan data siswas
+        $siswas = User::all();
+
+        return view('siswa.index', compact('siswas'));
     }
 
 

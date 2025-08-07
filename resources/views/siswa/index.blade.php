@@ -17,25 +17,22 @@
                <th>Foto</th> 
                <th>Name</th> 
                <th>Nisn</th> 
+               <th>Kelas</th> 
                <th>Alamat</th> 
                <th>Opsi</th> 
             </tr>
         </thead>
         <tbody>
-            <tr>
-               <td>foto.jpg</td> 
-               <td>Rizqi</td> 
-               <td>12321321</td> 
-               <td>Jl.abcd</td> 
-               <td>...</td> 
-            </tr>
-            <tr>
-               <td>foto.jpg</td> 
-               <td>Rizqi</td> 
-               <td>12321321</td> 
-               <td>Jl.abcd</td> 
-               <td>...</td> 
-            </tr>
+            @foreach ($siswas as $siswa)
+                <tr>
+                    <td><img src="{{ asset('storage/'.$siswa->photo) }}" alt="" width="40"></td>  
+                    <td>{{ $siswa->name }}</td> 
+                    <td>{{ $siswa->nisn }}</td> 
+                    <td>{{ $siswa->clas->name }}</td> 
+                    <td>{{ $siswa->alamat }}</td> 
+                    <td>...</td> 
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </body>
