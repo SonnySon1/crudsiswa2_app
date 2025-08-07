@@ -30,7 +30,13 @@
                     <td>{{ $siswa->nisn }}</td> 
                     <td>{{ $siswa->clas->name }}</td> 
                     <td>{{ $siswa->alamat }}</td> 
-                    <td>...</td> 
+                    <td>
+                        <a href="">Edit</a> 
+                        |
+                        <a href="">Detail</a>
+                        |
+                        <a onclick="return confirm('yakin ingin menghapus')" href="/siswa/delete/{{ $siswa->id }}">Delete</a>
+                    </td> 
                 </tr>
             @endforeach
         </tbody>
