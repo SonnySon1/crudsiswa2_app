@@ -33,7 +33,7 @@
                     <td>
                         <a href="">Edit</a> 
                         |
-                        <a href="">Detail</a>
+                        <a href="/siswa/show/{{ $siswa->id }}">Detail</a>
                         |
                         <a onclick="return confirm('yakin ingin menghapus')" href="/siswa/delete/{{ $siswa->id }}">Delete</a>
                     </td> 
