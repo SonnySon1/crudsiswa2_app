@@ -13,7 +13,7 @@
     <br>
     <br>
     <img width="70" src="{{ asset('storage/'.$datauser->photo) }}" alt="">
-    <form action="/siswa/store" method="post" enctype="multipart/form-data">
+    <form action="/siswa/update/{{ $datauser->id }}" method="post" enctype="multipart/form-data">
         @csrf
         <div>
             <label for="">Kelas</label><br>
